@@ -10,9 +10,11 @@ import _ from "lodash";
 
 /*
     @TODO parameterize connection info per environment
+    Sequelize('database', 'username', 'password');
+    const db = new Sequelize("taopsql", "taopsql", "taopsql", {
 */
-const db = new Sequelize("taopsql", "taopsql", "taopsql", {
-  host: "localhost",
+const db = new Sequelize("den4j9m1o09qek", "jyjlyyllutfqbu", "432a6cc0aecbe443a6adc16b8d674075908444042e4f6ff981d98b0ca187db68", {
+  host: "ec2-54-225-192-243.compute-1.amazonaws.com",
   dialect: "postgres",
 
   pool: {

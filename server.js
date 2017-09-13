@@ -53,7 +53,7 @@ ws.listen(GRAPHQL_PORT, () => {
 */
 var pg = require("pg");
 //  @TODO source connection string per environment
-const connectionString = "postgres://localhost/taopsql";
+const connectionString = "postgres://ec2-54-225-192-243.compute-1.amazonaws.com/den4j9m1o09qek";
 const client = new pg.Client(connectionString);
 client.connect(function(err, client) {
   console.log("connecting");
