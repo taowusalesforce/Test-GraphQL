@@ -8,6 +8,7 @@ import { SubscriptionServer } from "subscriptions-transport-ws";
 import { publishPersonChanged } from "./data/resolvers";
 
 const GRAPHQL_PORT = process.env.PORT || 3000;
+const BASE_URL = tao-graphql.herokuapp.com;
 
 const graphQLServer = express();
 
@@ -16,7 +17,7 @@ graphQLServer.use(
   "/graphiql",
   graphiqlExpress({
     endpointURL: "/graphql",
-    subscriptionsEndpoint: `ws://localhost:${GRAPHQL_PORT}/subscriptions`
+    subscriptionsEndpoint: `ws://${BASE_URL}:${GRAPHQL_PORT}/subscriptions`
   })
 );
 
@@ -24,7 +25,7 @@ const ws = createServer(graphQLServer);
 
 ws.listen(GRAPHQL_PORT, () => {
   console.log(
-    `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}`
+    `GraphQL Server is now running on http://${BASE_URL}:${GRAPHQL_PORT}`
   );
   // Set up the WebSocket for handling GraphQL subscriptions
   new SubscriptionServer(
