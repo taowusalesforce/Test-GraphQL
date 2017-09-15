@@ -54,8 +54,9 @@ ws.listen(GRAPHQL_PORT, () => {
 */
 var pg = require("pg");
 //  @TODO source connection string per environment
-//const connectionString = "postgres://ec2-54-225-192-243.compute-1.amazonaws.com/den4j9m1o09qek";
-const connectionString = "postgres://jyjlyyllutfqbu:432a6cc0aecbe443a6adc16b8d674075908444042e4f6ff981d98b0ca187db68@ec2-54-225-192-243.compute-1.amazonaws.com:5432/den4j9m1o09qek";
+//const connectionString = "postgres://jyjlyyllutfqbu:432a6cc0aecbe443a6adc16b8d674075908444042e4f6ff981d98b0ca187db68@ec2-54-225-192-243.compute-1.amazonaws.com:5432/den4j9m1o09qek";
+const localDBString = "postgres://localhost/taopsql";
+const connectionString = process.env.DATABASE_URL || localDBString;
 const client = new pg.Client(connectionString);
 client.connect(function(err, client) {
   console.log("connecting");
