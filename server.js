@@ -7,7 +7,7 @@ import { execute, subscribe } from "graphql";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { publishPersonChanged } from "./data/resolvers";
 
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = process.env.PORT || 3000;
 
 const graphQLServer = express();
 
