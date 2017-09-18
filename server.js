@@ -66,6 +66,10 @@ client.connect(function(err, client) {
   }
   //this is called whenever postgres sends a notification
   client.on("notification", function(msg) {
+
+    //log any info that trigger this function
+    console.log("get notification: " + msg);
+    
     //see the function in postgres which constructs and sends the message via person table triggers
     if (msg.name === "notification" && msg.channel === "person_table_update") {
       const newPerson = JSON.parse(msg.payload);
