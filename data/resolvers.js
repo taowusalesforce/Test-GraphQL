@@ -25,12 +25,16 @@ const resolvers = {
 export const publishPersonChanged = function(notificationPayload) {
 
   //add log
-  console.log("in publishPersonChanged func: payload: " + notificationPayload);
+  console.log("in publishPersonChanged func: payload: " + JSON.stringify(notificationPayload));
 
-  
-  pubsub.publish("personChanged", {
+
+  var resultpub = pubsub.publish("personChanged", {
     personChanged: notificationPayload
   });
+
+  console.log("result of pub: " + resultpub);
+
+
 };
 
 export default resolvers;
