@@ -23,6 +23,11 @@ const resolvers = {
 //this publishes (within node.js) a notification which is then picked up by subscriptions (above)
 //TODO make this generic where the payload provides the publish params
 export const publishPersonChanged = function(notificationPayload) {
+
+  //add log
+  console.log("in publishPersonChanged func: payload: " + notificationPayload);
+
+  
   pubsub.publish("personChanged", {
     personChanged: notificationPayload
   });
