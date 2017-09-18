@@ -18,7 +18,8 @@ graphQLServer.use(
   "/graphiql",
   graphiqlExpress({
     endpointURL: "/graphql",
-    subscriptionsEndpoint: `ws://${BASE_URL}:${GRAPHQL_PORT}/subscriptions`
+    //subscriptionsEndpoint: `ws://${BASE_URL}:${GRAPHQL_PORT}/subscriptions`
+    subscriptionsEndpoint: `ws://${BASE_URL}/subscriptions`
   })
 );
 
@@ -26,7 +27,8 @@ const ws = createServer(graphQLServer);
 
 ws.listen(GRAPHQL_PORT, () => {
   console.log(
-    `GraphQL Server is now running on http://${BASE_URL}:${GRAPHQL_PORT}`
+    //`GraphQL Server is now running on http://${BASE_URL}:${GRAPHQL_PORT}`
+    `GraphQL Server is now running on http://${BASE_URL}`
   );
   // Set up the WebSocket for handling GraphQL subscriptions
   new SubscriptionServer(
