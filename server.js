@@ -68,8 +68,8 @@ client.connect(function(err, client) {
   client.on("notification", function(msg) {
 
     //log any info that trigger this function
-    console.log("get notification: " + msg);
-    
+    console.log("get notification: name: " + msg.name + ", channel: " + msg.channel + ", payload: + "  +msg.payload);
+
     //see the function in postgres which constructs and sends the message via person table triggers
     if (msg.name === "notification" && msg.channel === "person_table_update") {
       const newPerson = JSON.parse(msg.payload);
