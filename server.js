@@ -66,17 +66,20 @@ client.connect(function(err, client) {
   }
   //this is called whenever postgres sends a notification
   client.on("notification", function(msg) {
-
-    //log any info that trigger this function
-    console.log("get notification: name: " + msg.name + ", channel: " + msg.channel + ", payload: + "  +msg.payload);
-
     //see the function in postgres which constructs and sends the message via person table triggers
     if (msg.name === "notification" && msg.channel === "person_table_update") {
       const newPerson = JSON.parse(msg.payload);
+
+      //log any info that trigger this function
+      console.log("get notification: name: " + msg.name + ", channel: " + msg.channel + ", payload: "  + msg.payload);
+
       //We want to use the same PubSub instance of the subscription, which lives in resolver; we can either
       //export the PubSub and have people publishing from here, or encapsulate the publishing functions
       //in the resolver (or elsewhere). Choosing the latter for now.
       publishPersonChanged(newPerson);
+
+      //log any info that trigger this function
+      console.log("get notification: DONE");
     }
   });
   client.query("LISTEN person_table_update");
