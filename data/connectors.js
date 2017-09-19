@@ -13,8 +13,8 @@ import _ from "lodash";
     Sequelize('database', 'username', 'password');
     const db = new Sequelize("taopsql", "taopsql", "taopsql", {
 */
-const db = new Sequelize("den4j9m1o09qek", "jyjlyyllutfqbu", "432a6cc0aecbe443a6adc16b8d674075908444042e4f6ff981d98b0ca187db68", {
-  host: "ec2-54-225-192-243.compute-1.amazonaws.com",
+const db = new Sequelize("datkcbtppls7pi", "iiagtdpcobqbzw", "d6679e8ae6f51bb36e1f1c13ba47504f75b0d005a6218fc0ffeed15c7ab2fdef", {
+  host: "ec2-54-221-220-82.compute-1.amazonaws.com",
   dialect: "postgres",
 
   pool: {
