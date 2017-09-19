@@ -8,3 +8,5 @@ database and creates the triggers and function for sending notifications from Po
 repo.
 
 Up-to-date documentation and explanations for Apollo Server can be found on [docs.apollostack.com](http://dev.apollodata.com/tools/apollo-server/index.html)
+
+For Heroku App
