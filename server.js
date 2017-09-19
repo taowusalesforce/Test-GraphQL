@@ -9,7 +9,8 @@ import { publishPersonChanged } from "./data/resolvers";
 
 const GRAPHQL_PORT = process.env.PORT || 3000;
 //const BASE_URL = "localhost";
-const BASE_URL = "tao-graphql.herokuapp.com";
+//const BASE_URL = "tao-graphql.herokuapp.com";
+const BASE_URL = process.env.BASEURL || "localhost";
 
 const graphQLServer = express();
 
