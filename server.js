@@ -73,6 +73,7 @@ client.connect(function(err, client) {
       const newPerson = JSON.parse(msg.payload);
 
       //log any info that trigger this function
+      console.log("Connection String: "  + connectionString);
       console.log("get notification: name: " + msg.name + ", channel: " + msg.channel + ", payload: "  + msg.payload);
 
       //We want to use the same PubSub instance of the subscription, which lives in resolver; we can either
